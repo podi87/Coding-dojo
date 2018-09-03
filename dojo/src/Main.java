@@ -53,31 +53,34 @@ public class Main {
 //
 //        String gf = "greenfox";
 //        System.out.println(Fibonacci.reverse(gf));
+//
+//
+//        final int n = 10000000;
+//        int[] nums = new int[n];
+//        for (int i = 0; i < n; i++) {
+//            nums[i] = (int)(Math.random() * (10000)+1);
+//        }
+//        int[] num2 = nums;
+//
+//        //IterativeMergeSort
+//        IterativeMergeSort iterativeMergeSort = new IterativeMergeSort();
+//        int[] ar = new int[]{100,1,24,4,5,6,8};
+//        int[] ab = new int[]{3,8,2,5,23,4,6,5,8,9,23,5,6,54,46,46,2,224,7};
+//        int[] a = new int[]{5,4,7,9};
+//        long start1 = System.currentTimeMillis();
+//        iterativeMergeSort.mergeSort(num2);
+//        long end1 = System.currentTimeMillis();
+//        System.err.println(end1-start1);
+//
+//        //RecursiveMergeSort
+//        RecursiveMergeSort recursiveMergeSort = new RecursiveMergeSort();
+//        long start2 = System.currentTimeMillis();
+//        recursiveMergeSort.mergeSort(nums);
+//        long end2 = System.currentTimeMillis();
+//        System.err.println(end2-start2);
 
 
-        final int n = 10000000;
-        int[] nums = new int[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = (int)(Math.random() * (10000)+1);
-        }
-        int[] num2 = nums;
 
-        //IterativeMergeSort
-        IterativeMergeSort iterativeMergeSort = new IterativeMergeSort();
-        int[] ar = new int[]{100,1,24,4,5,6,8};
-        int[] ab = new int[]{3,8,2,5,23,4,6,5,8,9,23,5,6,54,46,46,2,224,7};
-        int[] a = new int[]{5,4,7,9};
-        long start1 = System.currentTimeMillis();
-        iterativeMergeSort.mergeSort(num2);
-        long end1 = System.currentTimeMillis();
-        System.err.println(end1-start1);
-
-        //RecursiveMergeSort
-        RecursiveMergeSort recursiveMergeSort = new RecursiveMergeSort();
-        long start2 = System.currentTimeMillis();
-        recursiveMergeSort.mergeSort(nums);
-        long end2 = System.currentTimeMillis();
-        System.err.println(end2-start2);
     }
 
     private static void printWordsWithVowelAtTheEnd(final String[] input) {
