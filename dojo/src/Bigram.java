@@ -11,14 +11,26 @@ class Bigram implements Serializable {
         this.second = second;
     }
 
-    public boolean equals(Bigram b) {
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Bigram)) {
+            return false;
+        }
+        Bigram b = (Bigram) o;
         return b.first == first && b.second == second;
+    }
+
+    @Override
+    public String toString() {
+        return "Bigram{" +
+                "first=" + first +
+                ", second=" + second +
+                '}';
     }
 
     public int hashCode() {
         return 31 * first + second;
     }
-
 
     public static void main(String[] args) {
         Set<Bigram> s = new HashSet<>();
@@ -27,33 +39,26 @@ class Bigram implements Serializable {
                 s.add(new Bigram(ch, ch));
         System.out.println(s.size());
 
-        Bigram b = new Bigram('a', 'b');
-
+        Bigram b = new Bigram('a', 'a');
+//
         // save the object to file
         String fileName = "MyFile";
-        FileOutputStream fos = null;
-        ObjectOutputStream oos = null;
-        try {
-            fos = new FileOutputStream(fileName);
-            oos = new ObjectOutputStream(fos);
+        try (FileOutputStream fos = new FileOutputStream(fileName);
+             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
             oos.writeObject(b);
-            oos.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         // read the object from file
         // save the object to file
-        FileInputStream fis = null;
-        ObjectInputStream in = null;
-        try {
-            fis = new FileInputStream(fileName);
-            in = new ObjectInputStream(fis);
-            b = (Bigram) in.readObject();
-            in.close();
+        try (FileInputStream fis = new FileInputStream(fileName);
+        ObjectInputStream ois = new ObjectInputStream(fis)) {
+            b = (Bigram) ois.readObject();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+
         System.out.println(b.toString());
     }
 }
