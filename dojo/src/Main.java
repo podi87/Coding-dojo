@@ -79,8 +79,18 @@ public class Main {
 //        long end2 = System.currentTimeMillis();
 //        System.err.println(end2-start2);
 
+        System.out.println(getDumyObject().toString());
+        System.out.println(getDumyObject2().toString());
 
+    }
 
+    public static Object getDumyObject() {
+        DummyObject dummyObject = new DummyObject(2);
+        return dummyObject;
+    }
+
+    public static DummyObject getDumyObject2() {
+        return (DummyObject)getDumyObject();
     }
 
     private static void printWordsWithVowelAtTheEnd(final String[] input) {
